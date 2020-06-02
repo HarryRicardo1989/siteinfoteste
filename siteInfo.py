@@ -1,12 +1,17 @@
 #!/bin/python3
-from flask import Flask, render_template, request, json
+from flask import Flask, render_template, request, json, redirect
 from ada_info import AdaInfo
 from formata_status import FormataStatus
 app = Flask(__name__)
 
 
 @app.route('/')
-def Index():
+def index():
+    return redirect('/site/servicos/datasat/status')
+
+
+@ app.route('/site/servicos/datasat/status')
+def status():
     passagens_et1 = []
     status_et1 = []
     passagens_et2 = []
@@ -23,4 +28,4 @@ def Index():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=81, debug=False, threaded=True )  
+    app.run(host='0.0.0.0', port=81, debug=False, threaded=True)
