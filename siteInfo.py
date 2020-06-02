@@ -1,5 +1,5 @@
 #!/bin/python3
-from flask import Flask, render_template, request, json, redirect
+from flask import Flask, render_template, request, json, redirect, url_for
 from ada_info import AdaInfo
 from formata_status import FormataStatus
 app = Flask(__name__)
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return redirect('/site/servicos/datasat/status')
+    return redirect(url_for('status'))
 
 
 @ app.route('/site/servicos/datasat/status')
