@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="2">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Passagens ADA</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <div class="logo">
+            <img id="logotipo" src="../static/logo_css_white_400.png">
+        </div>
+        <div class="titulo">
+            <h1>
+                Status do Sistema
+            </h1>
+        </div>
+    </header>
+    <div>
+        <div class="autoajust">
+            <div class="bloco">
+                <div class="pass">
+                    <h1>
+                        {{ passagens_et1[0].replace('Nome da ADA:','') }}
+                    </h1>
+                    <ol>
+                        {%for item in passagens_et1[1:]%}
+                        <li>{{item}}</li>
+                        {%endfor%}
+                    </ol>
+                </div>
+
+                <div class="status">
+                    <ol>
+                        {%for item in status_et1[1:]%}
+                        <li>
+                            {{item}}
+                        </li>
+                        {%endfor%}
+                    </ol>
+                </div>
+            </div>
+
+            <div class="bloco">
+                <div class="pass">
+                    <h1>
+                        {{ passagens_et2[0].replace('Nome da ADA:','') }}
+                    </h1>
+                    <ol>
+                        {%for item in passagens_et2[1:]%}
+                        <li>{{item}}</li>
+                        {%endfor%}
+                    </ol>
+                </div>
+
+                <div class="status">
+                    <ol>
+                        {%for item in status_et2[1:]%}
+                        <li>{{item}}</li>
+                        {%endfor%}
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <p class="copyright">&copy; Copyright Criar Space Systems - 2020</p>
+    </footer>
+    </div>
+</body>
+
+</html>

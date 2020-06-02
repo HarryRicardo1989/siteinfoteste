@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="2">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Passagens ADA</title>
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('clock').innerHTML =
+                h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
+
+</head>
+
+<body onload="startTime()">
+    <header>
+
+        <div class="logo">
+            <img id="logotipo" src="../static/logo_css_white_400.png">
+        </div>
+        <div class="titulo">
+            <h1>
+                Status do Sistema
+                <div class="clock" id="clock">
+                </div>
+            </h1>
+        </div>
+    </header>
+    <div>
+        <div class="autoajust">
+            <div class="bloco">
+                <div class="pass">
+                    <h1>
+                        {{ passagens_et1[0].replace('Nome da ADA:','') }}
+                    </h1>
+                    <ol>
+                        {%for item in passagens_et1[1:]%}
+                        <li>{{item}}</li>
+                        {%endfor%}
+                    </ol>
+                </div>
+
+                <div class="status">
+                    <ol>
+                        {% if (status_et1[1] < 65.0)%}
+                        <li>
+                            Temperatura do Processador: <strong style="color:green ;">{{status_et1[1]}}ºC</strong>
+                        </li>
+                        {% elif (status_et1[1] >= 65.0 and status_et1[1] < 75) %}
+                        <li>
+                            Temperatura do Processador: <strong style="color:yellow ;">{{status_et1[1]}}ºC</strong>
+                        </li>
+                        {% elif (status_et1[1] >= 75.0) %}
+                        <li>
+                            <strong style="color:red ;font-size: 20px; ">Temperatura do Processador:
+                                {{status_et1[1]}}ºC</strong>
+                        </li>
+
+                        {%endif%}
+
+                        {% if status_et1[2] < 70 %}
+                        <li>
+                            SSD Utilizado: <strong style="color:green ;">{{status_et1[2]}}%</strong>
+                        </li>
+                        {% else %}
+                        <li>
+                            <strong style="color:red ;font-size: 20px; ">SSD Utilizado: {{status_et1[2]}}%</strong>
+                        </li>
+                        {%endif%}
+
+                        {% if status_et1[3] == 'AZ075.00 EL00.00' %}
+                        <li>
+                            Posição Atual da Antena: <strong style="color: green ;">{{status_et1[3]}}</strong>
+                        </li>
+                        {% else %}
+                        <li>
+                            Posição Atual da Antena: <strong style="color: yellow;">{{status_et1[3]}}</strong>
+                        </li>
+                        {%endif%}
+
+                    </ol>
+                </div>
+            </div>
+
+            <div class="bloco">
+                <div class="pass">
+                    <h1>
+                        {{ passagens_et2[0].replace('Nome da ADA:','') }}
+                    </h1>
+                    <ol>
+                        {%for item in passagens_et2[1:]%}
+                        <li>{{item}}</li>
+                        {%endfor%}
+                    </ol>
+                </div>
+
+                <div class="status">
+                    <ol>
+                        {% if (status_et2[1] < 65.0)%}
+                        <li>
+                            Temperatura do Processador: <strong style="color:green ;">{{status_et2[1]}}ºC</strong>
+                        </li>
+                        {% elif (status_et2[1] >= 65.0 and status_et2[1] < 75) %}
+                        <li>
+                            Temperatura do Processador: <strong style="color:yellow ;">{{status_et2[1]}}ºC</strong>
+                        </li>
+                        {% elif (status_et2[1] >= 75.0) %}
+                        <li>
+                            <strong style="color:red ;font-size: 20px; ">Temperatura do Processador:
+                                {{status_et2[1]}}ºC</strong>
+                        </li>
+
+                        {%endif%}
+
+                        {% if status_et2[2] < 70 %}
+                        <li>
+                            SSD Utilizado: <strong style="color:green ;">{{status_et2[2]}}%</strong>
+                        </li>
+                        {% else %}
+                        <li>
+                            <strong style="color:red ;font-size: 20px; ">SSD Utilizado: {{status_et2[2]}}%</strong>
+                        </li>
+                        {%endif%}
+                        {% if status_et2[3] == 'AZ010.00 EL00.00' %}
+                        <li>
+                            Posição Atual da Antena: <strong style="color: green ;">{{status_et2[3]}}</strong>
+                        </li>
+                        {% else %}
+                        <li>
+                            Posição Atual da Antena: <strong style="color: yellow;">{{status_et2[3]}}</strong>
+                        </li>
+                        {%endif%}
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <p class="copyright">&copy; Copyright CRIAR Space Systems - 2020</p>
+    </footer>
+    </div>
+</body>
+
+</html>

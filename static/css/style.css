@@ -1,0 +1,108 @@
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    padding: 5px;
+}
+
+.logo {
+    position: relative;
+    display: block;
+    width: 940;
+    margin: 0 auto;
+}
+#logotipo{
+    width: 15%;
+}
+.titulo {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.7);
+
+}
+.clock{
+    color: rgba(255, 255, 255, 0.7);
+    font-family: monospace;
+    font-size: 15px;
+    padding: 7px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(0, 0, 0);
+    background-image: url(../background-2.jpg);
+    background-size: cover;
+}
+
+.autoajust{
+    text-align: center;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+
+}
+.bloco{
+    vertical-align: top;
+    display: inline-block;
+    margin: 3% 3%;
+    box-sizing: border-box;
+    box-sizing: content-box;
+    border: grey solid 2px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    padding-top: 5px;
+}
+
+
+.pass{
+    vertical-align: top;
+    padding: 5px;
+    text-align: center;
+}
+.pass h1{
+    text-align: center;
+    color: rgb(148, 148, 148);
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: top;
+    padding: 7px;
+}
+
+.pass li {
+    vertical-align: top;
+    text-align: left;
+    color: rgb(148, 148, 148);
+    padding:2px;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+.status{
+    vertical-align: top;
+    padding: 7px;
+}
+
+.status li {
+    vertical-align: top;
+    color: rgb(148, 148, 148);
+    text-align: left;
+    padding: 2px;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.copyright {
+    vertical-align: bottom;
+    color: wheat;
+    font-size: 13px;
+    margin: 30px 0 0;
+}
