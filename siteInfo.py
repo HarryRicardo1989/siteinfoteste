@@ -27,5 +27,13 @@ def status():
     return render_template('ada_info.html', status_et1=status_et1, passagens_et1=passagens_et1, status_et2=status_et2, passagens_et2=passagens_et2)
 
 
+@ app.route('/et01')
+def status_sistema():
+    status_et01 = AdaInfo().get_passagens()[
+        0] + FormataStatus().formata_status()[0]
+
+    return str(status_et01)
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=80, debug=True, threaded=True)
