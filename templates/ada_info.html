@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="30">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }} " type="image/x-icon">
@@ -12,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
     <title>Passagens ADA</title>
     <script src="{{ url_for('static', filename='relogio.js') }}"></script>
+    <script src="{{ url_for('static', filename='request_status_geral.js') }}"></script>
+
 
 </head>
 
@@ -141,7 +142,6 @@
     </footer>
     </div>
 
-    <script src="{{ url_for('static', filename='request_status_geral.js') }}"></script>
     <script src="{{ url_for('static', filename='status.js') }}"></script>
 
 </body>

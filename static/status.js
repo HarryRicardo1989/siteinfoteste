@@ -1,12 +1,15 @@
 document.querySelector(".titulo-principal").textContent = "Status do Sistema";
+myTimer();
 
-
-atualizaStatus()
 
 function geraListas(listastatus) {
-    var passagens = []
-    var status = []
-    var statusSistema = JSON.parse(listastatus);
-    console.log(statusSistema["statusSistema"])
+    //var teste = JSON.stringify(listastatus[0]);
+    for (const item of listastatus) {
+        console.log(item);
 
+    }
+
+    //console.log(listastatus);
 }
+
+

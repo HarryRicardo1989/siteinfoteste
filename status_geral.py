@@ -11,7 +11,7 @@ class StatusSistemasAda:
             try:
                 estacao = self.__get_url()[i]
                 list_passagens.append(requests.get(
-                    f'{estacao}/passagens').json())
+                    f'{estacao}/passagens').text.replace('\n', '').replace('\"', '').replace('{', '').replace('}', '').split(','))
             except:
                 pass
             try:
