@@ -3,16 +3,13 @@ myTimer();
 
 function FetchParser(jsonOjb) {
     for (const item of jsonOjb['statusSistema']) {
-        for (var i = 0; i < item.length; i + 2) {
-            console.log(item[i])
-        }
+        //console.log(item[i])
     }
 }
 
 function myTimer() {
-    var timer = setTimeout(function () {
+    setTimer(function () {
         atualizaStatus();
-        myTimer();
 
     }, 2000)
 };
