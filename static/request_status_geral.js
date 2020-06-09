@@ -1,9 +1,6 @@
 document.querySelector(".titulo-principal").textContent = "Status do Sistema";
 
 function FetchParser(jsonOjb) {
-    /* for (const item of jsonOjb['statusSistema']) {
-        //console.log(item[i])
-    } */
     console.log(jsonOjb)
 }
 
@@ -20,7 +17,7 @@ function atualizaStatus() {
             });
         }
         if (error) {
-            r.text().then(t => console.log(t));
+            r.text().then(t => console.log('t'));
         }
     });
 
