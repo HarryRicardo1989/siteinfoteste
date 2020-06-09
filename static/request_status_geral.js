@@ -1,5 +1,4 @@
 var xhr = new XMLHttpRequest();
-var url = "/statusSistema";
 
 xhr.addEventListener("load", function () {
     if (xhr.status == 200) {
@@ -20,7 +19,7 @@ function myTimer() {
 
 
 function atualizaStatus() {
-
+    var url = "/statusSistema";
     xhr.open("GET", url);
     xhr.send();
 };
