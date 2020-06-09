@@ -1,15 +1,12 @@
 document.querySelector(".titulo-principal").textContent = "Status do Sistema";
 
 
-url = "/et01";
+atualizaStatus()
 
-
-
-console.log(et01status)
-
-function montaOL(passagens) {
-    for (var i = 0; i < passagens.length; i++) {
-        console.log(passagens[i])
-    }
+function geraListas(listastatus) {
+    var passagens = []
+    var status = []
+    var statusSistema = JSON.parse(listastatus);
+    console.log(statusSistema["statusSistema"])
 
 }

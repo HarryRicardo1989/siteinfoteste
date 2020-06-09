@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, json, redirect, url_for
 from ada_info import AdaInfo
 from formata_status import FormataStatus
+from status_geral import StatusSistemasAda
 app = Flask(__name__)
 
 
@@ -27,12 +28,11 @@ def status():
     return render_template('ada_info.html', status_et1=status_et1, passagens_et1=passagens_et1, status_et2=status_et2, passagens_et2=passagens_et2)
 
 
-@ app.route('/et01')
+@ app.route('/statusSistema')
 def status_sistema():
-    status_et01 = AdaInfo().get_passagens()[
-        0] + FormataStatus().formata_status()[0]
+    status_geral = StatusSistemasAda()
 
-    return str(status_et01)
+    return status_geral.get_statusgeral()
 
 
 if __name__ == '__main__':
