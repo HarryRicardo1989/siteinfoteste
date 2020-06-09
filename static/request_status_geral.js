@@ -15,7 +15,6 @@ function montaUl(liItens) {
 }
 
 
-
 function FetchParser(jsonObj) {
     statusGeral = jsonObj['statusSistema']
     passET01 = statusGeral[0]
@@ -23,10 +22,9 @@ function FetchParser(jsonObj) {
     passET02 = statusGeral[2]
     statET02 = statusGeral[4]
     var divPrincipal = document.querySelector("#InicioBlocos");
-
-    bloco = document.querySelector(".bloco")
-    bloco.remove();
+    divPrincipal.innerHTML = '';
     divPrincipal.appendChild(montaUl(passET01));
+    divPrincipal.appendChild(montaUl(passET02));
     bloco = document.querySelector(".bloco")
 }
 
@@ -53,4 +51,4 @@ function atualizaStatus() {
 setInterval(function () {
     atualizaStatus();
 
-}, 2000)
+}, 500)
