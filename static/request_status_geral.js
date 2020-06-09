@@ -1,18 +1,12 @@
 document.querySelector(".titulo-principal").textContent = "Status do Sistema";
-myTimer();
 
 function FetchParser(jsonOjb) {
-    for (const item of jsonOjb['statusSistema']) {
+    /* for (const item of jsonOjb['statusSistema']) {
         //console.log(item[i])
-    }
+    } */
+    console.log(jsonOjb)
 }
 
-function myTimer() {
-    setTimer(function () {
-        atualizaStatus();
-
-    }, 2000)
-};
 
 
 function atualizaStatus() {
@@ -33,3 +27,7 @@ function atualizaStatus() {
 };
 
 
+setInterval(function () {
+    atualizaStatus();
+
+}, 2000)
