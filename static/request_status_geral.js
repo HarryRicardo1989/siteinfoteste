@@ -1,25 +1,38 @@
-var xhr = new XMLHttpRequest();
+document.querySelector(".titulo-principal").textContent = "Status do Sistema";
+myTimer();
 
-xhr.addEventListener("load", function () {
-    if (xhr.status == 200) {
-        var statusSistema = xhr.responseText;
-        var listastatus = JSON.parse(statusSistema)["statusSistema"];
-        geraListas(listastatus)
+function FetchParser(jsonOjb) {
+    for (const item of jsonOjb['statusSistema']) {
+        for (var i = 0; i < item.length; i + 2) {
+            console.log(item[i])
+        }
     }
-    else { console.log("falhou") }
-})
+}
 
 function myTimer() {
     var timer = setTimeout(function () {
         atualizaStatus();
         myTimer();
 
-    }, 1000)
+    }, 2000)
 };
 
 
 function atualizaStatus() {
     var url = "/statusSistema";
-    xhr.open("GET", url);
-    xhr.send();
+    fetch(url).then(r => {
+        let error = false;
+        if (r.status == 200) {
+            r.json().then(json => FetchParser(json)).catch(() => {
+                error = true;
+                console.log('Error');
+            });
+        }
+        if (error) {
+            r.text().then(t => console.log(t));
+        }
+    });
+
 };
+
+
