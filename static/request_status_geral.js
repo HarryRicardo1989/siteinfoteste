@@ -1,7 +1,33 @@
 document.querySelector(".titulo-principal").textContent = "Status do Sistema";
 
-function FetchParser(jsonOjb) {
-    console.log(jsonOjb)
+function montaUl(liItens) {
+    div = document.createElement("div");
+    div.classList.add('bloco')
+    ul = document.createElement("ul");
+    ul.classList.add('pass')
+    div.appendChild(ul);
+    liItens.forEach(function (item) {
+        var li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+    });
+    return div
+}
+
+
+
+function FetchParser(jsonObj) {
+    statusGeral = jsonObj['statusSistema']
+    passET01 = statusGeral[0]
+    statET01 = statusGeral[1]
+    passET02 = statusGeral[2]
+    statET02 = statusGeral[4]
+    var divPrincipal = document.querySelector("#InicioBlocos");
+
+    bloco = document.querySelector(".bloco")
+    bloco.remove();
+    divPrincipal.appendChild(montaUl(passET01));
+    bloco = document.querySelector(".bloco")
 }
 
 
