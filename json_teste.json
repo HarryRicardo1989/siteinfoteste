@@ -1,0 +1,53 @@
+{
+    "statusSistema": {
+        "Passagens": {
+            "1": {
+                "Passagens ET-CSS-001": {
+                    "12:42": "POLYITAN-1",
+                    "13:58": "QB50P2",
+                    "15:00": "OSCAR 7 AO-7",
+                    "16:53": "OSCAR 7 AO-7",
+                    "17:28": "NOAA 19",
+                    "18:36": "NOAA 15",
+                    "19:09": "NOAA 19",
+                    "20:15": "NOAA 15",
+                    "20:47": "NOAA 18",
+                    "22:28": "NOAA 18",
+                    "22:45": "ITASAT 1",
+                    "23:04": "QB50P2",
+                    "23:29": "FLORIPASAT-1"
+                }
+            },
+            "2": {
+                "Passagens ET-CSS-002": {
+                    "17:28": "NOAA 19",
+                    "18:36": "NOAA 15",
+                    "19:09": "NOAA 19",
+                    "20:15": "NOAA 15",
+                    "20:47": "NOAA 18",
+                    "22:28": "NOAA 18",
+                    "22:45": "ITASAT 1",
+                    "23:29": "FLORIPASAT-1"
+                }
+            }
+        },
+        "Status": {
+            "1": {
+                "Status ET-CSS-001": {
+                    "Hora_Atual": "12:52:57",
+                    "Posicao_Atual": "AZ354.16 EL12.54",
+                    "SSD_used": "43%",
+                    "Temp_CPU": "+59.0"
+                }
+            },
+            "2": {
+                "Status ET-CSS-002": {
+                    "Hora_Atual": "12:52:58",
+                    "Posicao_Atual": "AZ010.00 EL00.00",
+                    "SSD_used": "31%",
+                    "Temp_CPU": "+65.0"
+                }
+            }
+        }
+    }
+}

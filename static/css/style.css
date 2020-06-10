@@ -73,25 +73,21 @@ body {
     padding: 7px;
 }
 
-.pass li {
+.pass li{
     vertical-align: top;
     text-align: left;
     color: rgb(148, 148, 148);
-    padding:2px;
-    padding-left: 5px;
-    font-size: 1em;
+    padding-top:10px;
+    padding-left: 8px;
+    font-size: 1.2em;
 }
 
-.status{
+.pass .item0, .pass .item1, .pass .item2, .pass .item3{
     vertical-align: top;
     padding: 7px;
-}
-
-.status li {
     vertical-align: top;
     color: rgb(148, 148, 148);
     text-align: left;
-    padding: 2px;
     font-size: 1em;
 }
 
