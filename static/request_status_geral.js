@@ -14,15 +14,26 @@ function montaUl(liItens) {
     return div
 }
 
+function geraStatus(status) {
+    hora = "Hora Server: " + status['Hora']
+    nomeDaAda = "Nome da Estação: " + status['Nome da ADA']
+    ssdUsed = "Porcentagem do SSD usado: " + status['Porcentagem do SSD usado']
+    posAtual = "Posição da Antena: " + status['Posicao Atual da Antena']
+    tempProcess = "Temperatura do Processador: " + status['Temperatura do Processador'] + "ºC"
+    return [nomeDaAda, hora, ssdUsed, tempProcess, posAtual]
+}
+
+
 
 function FetchParser(jsonObj) {
     statusGeral = jsonObj['statusSistema']
     passET01 = statusGeral[0]
-    statET01 = statusGeral[1]
     passET02 = statusGeral[2]
-    statET02 = statusGeral[4]
+
     var divPrincipal = document.querySelector("#InicioBlocos");
     divPrincipal.innerHTML = '';
+    divPrincipal.appendChild(montaUl(geraStatus(statusGeral[1])));
+    divPrincipal.appendChild(montaUl(geraStatus(statusGeral[3])));
     divPrincipal.appendChild(montaUl(passET01));
     divPrincipal.appendChild(montaUl(passET02));
     bloco = document.querySelector(".bloco")
