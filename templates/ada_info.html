@@ -9,7 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
-    <title>Passagens ADA</title>
+    <title>Status DATASAT</title>
     <script src="{{ url_for('static', filename='relogio.js') }}"></script>
 
 
@@ -26,16 +26,18 @@
             <h2 class="clock" id="clock"></h2>
         </div>
     </header>
-    <div>
+    <main>
         <div id="InicioBlocos" class="autoajust">
         </div>
-    </div>
+
+    </main>
     <footer>
         <p class="copyright">&copy; Copyright CRIAR Space Systems - 2020</p>
     </footer>
     </div>
 
     <script src="{{ url_for('static', filename='request_status_geral.js') }}"></script>
+    <script src="{{ url_for('static', filename='status.js') }}"></script>
 
 </body>
 

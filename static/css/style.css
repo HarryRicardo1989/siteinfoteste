@@ -28,7 +28,7 @@ header {
 }
 .clock{
     color: rgba(255, 255, 255, 0.7);
-    font-family: 'Electrolize', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.75em;
     padding: 7px;
 }
@@ -58,12 +58,13 @@ body {
 }
 
 
-.pass{
+
+
+.status{
     vertical-align: top;
     padding: 5px;
-    text-align: center;
 }
-.pass h1{
+.datasat h1{
     text-align: center;
     color: rgb(148, 148, 148);
     font-size: 2em;
@@ -72,23 +73,42 @@ body {
     vertical-align: top;
     padding: 7px;
 }
-
-.pass li{
+.status li {
     vertical-align: top;
-    text-align: left;
     color: rgb(148, 148, 148);
-    padding-top:10px;
-    padding-left: 8px;
-    font-size: 1.2em;
+    text-align: left;
+    padding: 2px;
+    font-size: 1.5em;
 }
 
-.pass .item0, .pass .item1, .pass .item2, .pass .item3{
+.pass{
     vertical-align: top;
     padding: 7px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.pass li {
     vertical-align: top;
-    color: rgb(148, 148, 148);
     text-align: left;
-    font-size: 1em;
+    color: rgb(148, 148, 148);
+    padding:3px;
+    padding-left: 7px;
+    font-size: 1.5em;
+}
+.pass h2 span {
+    color:rgb(0, 129, 151);
+    padding-left: 8px;
+  }
+
+.pass li:nth-child(2){
+    color:rgb(79, 128, 0);
+ }
+.pass .hora{
+    padding-right: 20px;
+}
+.pass .sat{
+    padding-left: 20px;
 }
 
 footer {
@@ -103,4 +123,15 @@ footer {
     color: wheat;
     font-size: 0.9em;
     margin: 30px 0 0;
+}
+
+.verde{
+    color: green;
+}
+.amarelo{
+    color: yellow;
+}
+.vermelho{
+    color: red;
+    font-weight: bold;
 }
