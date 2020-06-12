@@ -2,27 +2,27 @@ header {
     font-weight: bolder;
     padding: 5px;
 }
+.divtitulo {
+    height: 160px;
+}
 
 .logo {
     position: relative;
-    display: block;
+    display: inline-block;
     width: 940;
     margin: 0 auto;
 }
 #logotipo{
     width: 15%;
 }
+
 .titulo {
     font-family: 'Electrolize', sans-serif;
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: block;
+    position: relative;
+    display: inline;
     text-align: center;
     font-size: 3em;
+    padding: 10px;
     color: rgba(255, 255, 255, 0.7);
 
 }
@@ -42,7 +42,7 @@ body {
 
 .autoajust{
     text-align: center;
-    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(57px,1fr));
 
 }
 .bloco{
