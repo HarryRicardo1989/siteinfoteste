@@ -115,6 +115,7 @@ body {
 }
 
 footer {
+    position: relative;
     vertical-align: bottom;
     text-align: center;
     padding: 20px 0;

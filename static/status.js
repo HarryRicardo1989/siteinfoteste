@@ -1,7 +1,7 @@
 function formataStatus(status) {
     let statusFormatado = []
     /* classificaçao Hora */
-    statusFormatado.push(`Hora Server: <span class="verde">${status['Hora_Atual']}</span>`);
+    statusFormatado.push(`Hora do ADA-Server: <span class="verde">${status['Hora_Atual']}</span>`);
     /* classificaçao SSD */
     if (status['SSD_used'] < "50%") {
         statusFormatado.push(`Porcentagem do SSD usado: <span class="verde">${status['SSD_used']}</span>`);
