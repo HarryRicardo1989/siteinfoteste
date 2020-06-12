@@ -21,10 +21,6 @@ function divCreate(tagFilha, classeDiv) {
     return div
 }
 
-function appendTag(tagMain, tagToAppend) {
-    tagMain.appendChild(tagToAppend);
-}
-
 function h1Create(h1Text, className) {
     let tag_Name = document.createElement("h1");
     tag_Name.classList.add(className);
@@ -41,14 +37,6 @@ function formataPassagens(lista) {
 }
 
 
-function concatLists(listMain, listaSec) {
-
-    for (item of Object.keys(listaSec)) {
-        listMain.push(listaSec[item])
-    }
-    return listMain
-}
-
 function FetchParser(jsonObj) {
 
     let statusGeral = jsonObj["statusSistema"];
@@ -58,7 +46,6 @@ function FetchParser(jsonObj) {
     let agendaEt2 = formataPassagens(passagens[2]["Passagens ET-CSS-002"]);
     let statusEt1 = formataStatus(statusSistema[1]["Status ET-CSS-001"]);
     let statusEt2 = formataStatus(statusSistema[2]["Status ET-CSS-002"]);
-
 
     divPrincipal.innerHTML = '';
     divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt1, "status"), "ET-CSS-001"), "datasat"), "bloco"))

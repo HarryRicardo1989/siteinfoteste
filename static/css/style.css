@@ -27,7 +27,7 @@ header {
 
 }
 .clock{
-    color: rgba(255, 255, 255, 0.7);
+    color: green;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.75em;
     padding: 7px;
@@ -66,7 +66,7 @@ body {
 }
 .datasat h1{
     text-align: center;
-    color: rgb(148, 148, 148);
+    color: rgb(175, 175, 175);
     font-size: 2em;
     font-weight: bold;
     display: inline-block;
@@ -75,9 +75,10 @@ body {
 }
 .status li {
     vertical-align: top;
-    color: rgb(148, 148, 148);
+    color: rgb(175, 175, 175);
     text-align: left;
-    padding: 2px;
+    padding: 4px;
+    padding-left: 8px;
     font-size: 1.5em;
 }
 
@@ -91,7 +92,7 @@ body {
 .pass li {
     vertical-align: top;
     text-align: left;
-    color: rgb(148, 148, 148);
+    color: rgb(175, 175, 175);
     padding:3px;
     padding-left: 7px;
     font-size: 1.5em;
@@ -105,9 +106,11 @@ body {
     color:rgb(79, 128, 0);
  }
 .pass .hora{
+    text-align: left;
     padding-right: 20px;
 }
 .pass .sat{
+    font-family: 'Electrolize', sans-serif;
     padding-left: 20px;
 }
 
@@ -130,6 +133,7 @@ footer {
 }
 .amarelo{
     color: yellow;
+    font-weight: bold;
 }
 .vermelho{
     color: red;
