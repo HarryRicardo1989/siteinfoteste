@@ -8,7 +8,7 @@ function montaUl(liItens, classe) {
     div.appendChild(ul);
     liItens.forEach(function (item) {
         li = document.createElement("li");
-        li.textContent = item;
+        li.innerHTML = item;
         ul.appendChild(li);
     });
     return div
@@ -16,9 +16,9 @@ function montaUl(liItens, classe) {
 function createUlList(lista, classeUL) {
     ul = document.createElement("ul");
     ul.classList.add(classeUL)
-    liItens.forEach(function (item) {
+    lista.forEach(function (item) {
         li = document.createElement("li");
-        li.textContent = item;
+        li.innerHTML = item;
         ul.appendChild(li);
     });
     return ul
@@ -29,28 +29,19 @@ function divCreate(tagFilha, classeDiv) {
     div = document.createElement("div");
     div.classList.add(classeDiv);
     div.appendChild(tagFilha);
-
     return div
 }
 
-/* function tagCreate(tagText) {
+function tagCreate(tagText) {
     tag_Name = document.createElement("h1");
     tag_Name.classList.add("");
-    tag_Name.textContent = tagText;
-    //return tag_Name
-} */
-
-function tagCreate(tagText, callback) {
-    tag_Name = document.createElement("div");
-    tag_Name.classList.add("");
-    tag_Name.textContent = tagText;
-    return callback;
+    tag_Name.innerHTML = tagText;
+    return tag_Name
 }
-
 function formataPassagens(lista) {
     listaFormatada = []
     for (x of Object.keys(lista)) {
-        listaFormatada.push(lista[x] + " --- " + x)
+        listaFormatada.push(`${x}  -  ${lista[x]}`)
     }
     return listaFormatada
 }
@@ -60,7 +51,6 @@ function formataStatus(status) {
     statusFormatado.push("Porcentagem do SSD usado: " + status['SSD_used']);
     statusFormatado.push("Temperatura do Processador: " + status['Temp_CPU'] + "ºC");
     statusFormatado.push("Posição da Antena: " + status['Posicao_Atual']);
-
     return statusFormatado
 }
 function concatLists(listMain, listaSec) {
@@ -85,12 +75,8 @@ function FetchParser(jsonObj) {
     divPrincipal.innerHTML = '';
     divPrincipal.appendChild(montaUl(concatLists(statusEt1, agendaEt1), "pass"));
     divPrincipal.appendChild(montaUl(concatLists(statusEt2, agendaEt2), "pass"));
+    divPrincipal.appendChild(createUlList(agendaEt1, "Bloco"))
 
-    console.log("teste criado");
-    tagCreate("teste", function (res) {
-        var blocoteste = document.querySelector("body");
-        blocoteste.appendChild(res.tag_Name);
-    })
 
 }
 
