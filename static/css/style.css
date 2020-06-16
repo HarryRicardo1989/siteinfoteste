@@ -12,6 +12,7 @@ header .divtitulo {
     display: inline-block;
     width: 940;
     margin: 0 auto;
+    position: fixed;
 }
 #logotipo{
     width: 15%;
