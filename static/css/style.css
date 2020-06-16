@@ -36,8 +36,10 @@ header {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(0, 0, 0);
-    background-image: url(../background-2.jpg);
-    background-size: cover;
+    background-image: url(../background-3.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .autoajust{
@@ -119,6 +121,7 @@ footer {
     vertical-align: bottom;
     text-align: center;
     padding: 20px 0;
+
 }
 
 .copyright {
