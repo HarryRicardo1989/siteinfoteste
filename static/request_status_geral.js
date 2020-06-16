@@ -47,6 +47,7 @@ function FetchParser(jsonObj) {
     let statusEt1 = formataStatus(statusSistema[1]["Status ET-CSS-001"]);
     let statusEt2 = formataStatus(statusSistema[2]["Status ET-CSS-002"]);
 
+    divPrincipal.innerHTML = ''
     divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt1, "status"), "ET-CSS-001"), "datasat"), "bloco"))
     divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt2, "status"), "ET-CSS-002"), "datasat"), "bloco"))
     ulEt01 = document.querySelector(".ET-CSS-001");
