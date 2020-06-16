@@ -11,9 +11,11 @@ header {
     display: inline-block;
     width: 940;
     margin: 0 auto;
+    
 }
 #logotipo{
     width: 15%;
+
 }
 
 .titulo {
@@ -34,10 +36,13 @@ header {
 }
 
 body {
+
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(0, 0, 0);
-    background-image: url(../background-2.jpg);
-    background-size: cover;
+    background-image: url(../background-3.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .autoajust{
