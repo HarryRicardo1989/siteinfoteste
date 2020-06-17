@@ -34,18 +34,10 @@ def atualiza_status():
         status_geral2 = StatusSistemas()
 
         status_geral_atualiza = status_geral2.get_statusgeral()
-<<<<<<< HEAD
         sleep(0.7)
-=======
-        sleep(1)
->>>>>>> c9cdb62615c63b0cce61ebdd9fb7fa334a8ccb97
 
 
 if __name__ == '__main__':
     threadstatus = threading.Thread(target=atualiza_status)
     threadstatus.start()
-<<<<<<< HEAD
-    app.run(host='0.0.0.0', port=81, debug=False, threaded=True)
-=======
     app.run(host='0.0.0.0', port=80, debug=False, threaded=True)
->>>>>>> c9cdb62615c63b0cce61ebdd9fb7fa334a8ccb97
