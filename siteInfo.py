@@ -32,7 +32,7 @@ def atualiza_status():
         status_geral2 = StatusSistemas()
 
         status_geral_atualiza = status_geral2.get_statusgeral()
-        sleep(0.7)
+        sleep(0.5)
 
 
 if __name__ == '__main__':
