@@ -6,7 +6,7 @@ function startTime() {
     h = checkTime(h);
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('clock').innerHTML = `<h1 class="hora">Hora Local</h1>${h}:${m}:${s}`;
+    document.getElementById('clock').innerHTML = `Hora Local ${h}:${m}:${s}`;
     var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {
