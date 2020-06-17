@@ -80,4 +80,4 @@ function atualizaStatus() {
 
 setInterval(function () {
     atualizaStatus();
-}, 500)
+}, 300)
