@@ -27,6 +27,7 @@ function h1Create(h1Text, className) {
     tag_Name.innerHTML = h1Text;
     return tag_Name
 }
+
 function formataPassagens(lista) {
     let listaFormatada = []
     listaFormatada.push(`<h2><span class="hora">Hora</span>&#8658<span class="sat">Satelite</span></h2>`)
@@ -35,7 +36,6 @@ function formataPassagens(lista) {
     }
     return listaFormatada
 }
-
 
 function FetchParser(jsonObj) {
 
