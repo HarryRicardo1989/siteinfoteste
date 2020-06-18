@@ -23,8 +23,6 @@ def status():
 
 @ app.route('/statusSistema')
 def status_sistema():
-    status_geral2 = StatusSistemas()
-
     return status_geral_atualiza
 
 
