@@ -44,25 +44,10 @@ body {
 .clock{
     color: rgba(171, 221, 171, 0.74);
     font-family: Arial, Helvetica, sans-serif;
-<<<<<<< HEAD
-    font-size: 0.75em;
-    padding: 7px;
-}
-
-body {
-
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(0, 0, 0);
-    background-image: url(../background-3.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-=======
     height: 3vh;
     line-height: 2vh;
     font-size: 3vh;
     padding: 0.3em;
->>>>>>> HTML-modific
 }
 
 .autoajust{
