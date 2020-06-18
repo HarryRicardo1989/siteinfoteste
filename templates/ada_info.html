@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }} " type="image/x-icon">
@@ -15,7 +16,7 @@
 
 </head>
 
-<body onload="startTime()">
+<body id="body" onload="startTime()">
     <header class="divtitulo">
         <img class="logo" id="logotipo" src="{{ url_for('static', filename='logo_css_white_400.png') }}">
         <div class="titulo">
@@ -35,7 +36,7 @@
 
     <script src="{{ url_for('static', filename='request_status_geral.js') }}"></script>
     <script src="{{ url_for('static', filename='status.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='mobile.js') }}"></script>
 </body>
 
 
