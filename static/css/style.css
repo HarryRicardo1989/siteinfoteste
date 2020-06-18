@@ -138,11 +138,13 @@ footer {
 }
 
 .verde{
-    color: green;
+    color: rgb(0, 150, 0);
 }
 .amarelo{
-    color: yellow;
+    color: rgb(210, 210, 0);
+
 }
 .vermelho{
-    color: red;
+    color: rgb(255, 30, 30);
+
 }
