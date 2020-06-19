@@ -9,6 +9,7 @@ body {
 }
 
 .divtitulo {
+    
     position: fixed;
     top: 0;
     width: 100%;
@@ -27,6 +28,7 @@ body {
     padding-right: 5vh;
     padding-left: 10vh;
 }
+
 
 .titulo  {
     display: inline-block;
