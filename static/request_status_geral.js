@@ -30,7 +30,7 @@ function h1Create(h1Text, className) {
 
 function formataPassagens(lista) {
     let listaFormatada = []
-    listaFormatada.push(`<h2><span class="hora">Hora</span>&#8658<span class="sat">Satelite</span></h2>`)
+    listaFormatada.push(`<h2><span class="hora">Hora </span><span class="sat">   Satelite</span></h2>`)
     for (x of Object.keys(lista)) {
         listaFormatada.push(`<span class="hora">${x}</span>&#8658;<span class="sat">${lista[x]}</span>`)
     }
