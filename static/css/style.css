@@ -115,9 +115,7 @@ body {
     padding-left: 30px;
 
   }
-.pass li:nth-child(2){
-    color: rgba(140, 220, 140, 0.8);
- }
+
 .pass .hora{
     text-align: left;
     padding-right: 20px;
@@ -152,4 +150,10 @@ footer {
 .vermelho{
     color: rgb(255, 30, 30);
 
+}
+#movimentando{
+    color: rgb(210, 210, 0);
+}
+#parada{
+    color: rgba(160, 220, 160, 0.7);
 }
