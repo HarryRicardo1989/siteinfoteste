@@ -35,10 +35,8 @@ function formataPassagens(lista, idName) {
         listaFormatada.push(`<span class="hora">${x}</span>&#8658;<span class="sat">${lista[x]}</span>`)
     }
     if (movimenta == true) {
-        console.log(movimenta)
         listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
     } else {
-        console.log(movimenta)
         listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
     }
     return listaFormatada
