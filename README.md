@@ -10,6 +10,20 @@
 
 ## About 
 Status do Sistema DATASAT requisitando informaçoes das ADAs em tempo real e atualizando no site
+ 
+## Funcionamento
+
+Cada Bloco representa Uma estação, contendo as informaçoes:
+
+- Hora atual de cada servidor
+- Porcentagem do SSD utilizado
+- Temperatura Atual do Processador
+- Posição fisica da Antena em Azimute (AZ) e Elevaçao (EL)
+ 
+- Lista de Agendamentos diarios no formato:
+
+    - Hora Agendada  =>  Nome do Satelite
+
 
 ## Version
 Versao de Produçao link Publico
