@@ -23,8 +23,6 @@ def status():
 
 @ app.route('/statusSistema')
 def status_sistema():
-    status_geral2 = StatusSistemas()
-
     return status_geral_atualiza
 
 
@@ -34,7 +32,7 @@ def atualiza_status():
         status_geral2 = StatusSistemas()
 
         status_geral_atualiza = status_geral2.get_statusgeral()
-        sleep(0.7)
+        sleep(0.1)
 
 
 if __name__ == '__main__':
