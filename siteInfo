@@ -16,7 +16,7 @@
 set -e
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/home/ricardopaschoali/siteinfo
-SL_PATH=/home/ricardopaschoali/siteinf
+SL_PATH=/home/ricardopaschoali/siteinfo
 DAEMON="/home/ricardopaschoali/siteinfo/siteInfo.py "
 PIDFILE=/var/run/site.pid
 
