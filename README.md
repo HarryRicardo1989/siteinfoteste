@@ -34,4 +34,4 @@ Versao de Produçao link Publico
 ## Branch
 
 As Branch's existentes sao referentes a diferença entre o Servidor de produçao e o servidor de testes na rede interna. 
-A Branch Master sempre estará com a versao produção
+A Branch Master sempre estará com a versão produção
