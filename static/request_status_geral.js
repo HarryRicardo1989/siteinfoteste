@@ -55,7 +55,7 @@ function checkSheduleds(lista) {
         return lista
     }
     else {
-        return { "00:00": "NoSatScheduledYet" }
+        return { "XX:XX": "NoSatScheduledYet" }
     }
 }
 
