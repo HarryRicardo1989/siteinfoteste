@@ -7,6 +7,8 @@
 - [About](#about)
 - [Access Link](http://criar.space:81)
 - [Version](#version)
+- [Branch](#branch)
+
 
 ## About 
 Status do Sistema DATASAT requisitando informaçoes das ADAs em tempo real e atualizando no site
@@ -27,3 +29,9 @@ Cada Bloco representa Uma estação, contendo as informaçoes:
 
 ## Version
 Versao de Produçao link Publico
+
+
+## Branch
+
+As Branch's existentes sao referentes a diferença entre o Servidor de produçao e o servidor de testes na rede interna. 
+A Branch Master sempre estará com a versao produção
