@@ -10,4 +10,4 @@
 Status do Sistema DATASAT requisitando informaçoes das ADAs em tempo real e atualizando no site
 
 ## Version
-Versao de Produçao link global
+Versao de Produçao link Publico
