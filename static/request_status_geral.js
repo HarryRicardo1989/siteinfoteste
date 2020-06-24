@@ -50,13 +50,22 @@ function movimento(status) {
     }
 }
 
+function checkSheduleds(lista) {
+    if (Object.keys(lista).length) {
+        return lista
+    }
+    else {
+        return { "00:00": "NoSatScheduledYet" }
+    }
+}
+
 function FetchParser(jsonObj) {
 
     let statusGeral = jsonObj["statusSistema"];
     let passagens = statusGeral["Passagens"];
     let statusSistema = statusGeral["Status"];
-    let agendaEt1 = formataPassagens(passagens[1]["Passagens ET-CSS-001"], movimento(statusSistema[1]["Status ET-CSS-001"]));
-    let agendaEt2 = formataPassagens(passagens[2]["Passagens ET-CSS-002"], movimento(statusSistema[2]["Status ET-CSS-002"]));
+    let agendaEt1 = formataPassagens(checkSheduleds(passagens[1]["Passagens ET-CSS-001"]), movimento(statusSistema[1]["Status ET-CSS-001"]));
+    let agendaEt2 = formataPassagens(checkSheduleds(passagens[2]["Passagens ET-CSS-002"]), movimento(statusSistema[2]["Status ET-CSS-002"]));
     let statusEt1 = formataStatus(statusSistema[1]["Status ET-CSS-001"]);
     let statusEt2 = formataStatus(statusSistema[2]["Status ET-CSS-002"]);
     divPrincipal.innerHTML = '';
