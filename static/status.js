@@ -3,12 +3,12 @@ function formataStatus(status) {
     /* classificaçao Hora */
     statusFormatado.push(`Hora do ADA-Server: <span class="verde">${status['Hora_Atual']}</span>`);
     /* classificaçao SSD */
-    if (parseInt(status['SSD_used']) < 50) {
-        statusFormatado.push(`Porcentagem do SSD usado: <span class="verde">${status['SSD_used']}</span>`);
-    } else if (parseInt(status['SSD_used']) <= 80) {
-        statusFormatado.push(`Porcentagem do SSD usado: <span class="amarelo">${status['SSD_used']}</span>`);
+    if (parseInt(status['sda1']) < 50) {
+        statusFormatado.push(`Porcentagem do SSD usado: <span class="verde">${status['sda1']}</span>`);
+    } else if (parseInt(status['sda1']) <= 80) {
+        statusFormatado.push(`Porcentagem do SSD usado: <span class="amarelo">${status['sda1']}</span>`);
     } else {
-        statusFormatado.push(`<span class="vermelho">Porcentagem do SSD usado: ${status['SSD_used']}</span>`);
+        statusFormatado.push(`<span class="vermelho">Porcentagem do SSD usado: ${status['sda1']}</span>`);
     }
 
 

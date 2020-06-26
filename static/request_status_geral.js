@@ -61,29 +61,24 @@ function checkSheduleds(lista) {
 
 function FetchParser(jsonObj) {
 
-    let statusGeral = jsonObj["statusSistema"];
-    let passagens = statusGeral["Passagens"];
-    let statusSistema = statusGeral["Status"];
-    let agendaEt1 = formataPassagens(checkSheduleds(passagens[1]["Passagens ET-CSS-001"]), movimento(statusSistema[1]["Status ET-CSS-001"]));
-    let agendaEt2 = formataPassagens(checkSheduleds(passagens[2]["Passagens ET-CSS-002"]), movimento(statusSistema[2]["Status ET-CSS-002"]));
-    let statusEt1 = formataStatus(statusSistema[1]["Status ET-CSS-001"]);
-    let statusEt2 = formataStatus(statusSistema[2]["Status ET-CSS-002"]);
+    let statusGeral = jsonObj['DataSAT'];
     divPrincipal.innerHTML = '';
-    divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt1, "status"), "ET-CSS-001"), "datasat"), "bloco"))
-    divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt2, "status"), "ET-CSS-002"), "datasat"), "bloco"))
-    ulEt01 = document.querySelector(".ET-CSS-001");
-    ulEt01.insertAdjacentHTML('beforebegin', '<h1>ET-CSS-001</h1>');
-    ulEt01.appendChild(createUlList(agendaEt1, "pass"), "pass");
-    ulEt01 = document.querySelector(".ET-CSS-002");
-    ulEt01.appendChild(createUlList(agendaEt2, "pass"), "pass");
-    ulEt01.insertAdjacentHTML('beforebegin', '<h1>ET-CSS-002</h1>');
-
-
+    for (ET of Object.keys(statusGeral)) {
+        const estacao = `${ET}`
+        const passagens = statusGeral[estacao]["Passagens"];
+        const statusSistema = statusGeral[estacao]["Status"]
+        const agendaEt = formataPassagens(checkSheduleds(passagens), movimento(statusSistema));
+        const statusEt = formataStatus(statusSistema);
+        divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt, "status"), estacao), "datasat"), "bloco"))
+        ulEt = document.querySelector(`.${estacao}`);
+        ulEt.insertAdjacentHTML('beforebegin', `<h1>${estacao}</h1>`);
+        ulEt.appendChild(createUlList(agendaEt, "pass"), "pass");
+    }
 
 }
 
 function atualizaStatus() {
-    var url = "/statusSistema";
+    var url = "/statusCompleto";
     fetch(url).then(r => {
         var error = false;
         if (r.status == 200) {
