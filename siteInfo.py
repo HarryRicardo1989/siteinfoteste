@@ -8,6 +8,7 @@ from statusGeral import StatusSistemas
 
 app = Flask(__name__)
 status_geral_atualiza = None
+status_completo_atualiza = None
 
 
 @app.route('/')
@@ -25,12 +26,18 @@ def status():
 def status_sistema():
     return status_geral_atualiza
 
+@ app.route('/statusCompleto')
+def status_completo():
+
+    return status_completo_atualiza
+
 
 def atualiza_status():
     global status_geral_atualiza
+    global status_completo_atualiza
     while(True):
         status_geral2 = StatusSistemas()
-
+        status_completo_atualiza = status_geral2.get_status_completo()
         status_geral_atualiza = status_geral2.get_statusgeral()
         sleep(0.1)
 
@@ -38,4 +45,5 @@ def atualiza_status():
 if __name__ == '__main__':
     threadstatus = threading.Thread(target=atualiza_status)
     threadstatus.start()
-    app.run(host='0.0.0.0', port=80, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=81, debug=False, threaded=True)
+
