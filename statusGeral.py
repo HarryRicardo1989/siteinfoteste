@@ -4,24 +4,16 @@ import json
 
 class StatusSistemas:
 
-    def get_statusgeral(self):
-        passagens = {}
-        status = {}
+    def get_status_completo(self):
+        status_completo = {}
         for i in range(0, len(self.__get_url())):
             try:
                 estacao = self.__get_url()[i]
-                passagens.update({i+1: requests.get(
-                    f'{estacao}/passagens').json()})
-            except:
-                pass
-            try:
-                estacao = self.__get_url()[i]
-                status.update({i+1: requests.get(
-                    f'{estacao}/status').json()})
+                status_completo.update(requests.get(f'{estacao}/statusSistema').json())
             except:
                 pass
 
-        return {"statusSistema": {"Passagens": passagens, "Status": status}}
+        return {"DataSAT": status_completo}
 
     def __get_url(self):
         lista_url = []
