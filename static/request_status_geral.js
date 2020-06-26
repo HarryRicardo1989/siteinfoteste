@@ -96,4 +96,4 @@ function atualizaStatus() {
 
 setInterval(function () {
     atualizaStatus();
-}, 300)
+}, 3000)
