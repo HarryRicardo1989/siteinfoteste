@@ -11,7 +11,7 @@ class SpeedTest:
         time.sleep(time_step)
         with open(path, "r") as f:
             bytes_after = int(f.read())
-        return {self.__updown(direction): f'{round((((bytes_after-bytes_before)/time_step)/100)/1000,3)} Mb/s'}
+        return {self.__updown(direction): f'{round((((bytes_after-bytes_before)/time_step)/1024),3)} kB/s'}
 
     def __updown(self, direction):
         if direction == "tx":

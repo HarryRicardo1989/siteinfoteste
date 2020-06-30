@@ -31,8 +31,8 @@ class StatusSistemas:
         status = {}
         network = {}
         status_servidor = GalaxyStatus()
-        network.update(SpeedTest().speed("tx", "enp2s0"))
-        network.update(SpeedTest().speed("rx", "enp2s0"))
+        network.update(SpeedTest().speed("tx", "enp1s0"))
+        network.update(SpeedTest().speed("rx", "enp1s0"))
         hostname, temperatura_processador, hora, armazenamento = status_servidor.get_status_galaxy()
         status.update({"Temp_CPU": temperatura_processador})
         status.update({"Hora_Atual": hora})
