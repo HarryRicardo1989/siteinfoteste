@@ -41,7 +41,7 @@ def atualiza_status():
         status_geral2 = StatusSistemas()
         status_galaxy = status_geral2.get_galaxy_stat()
         status_completo_atualiza = status_geral2.get_status_completo()
-        sleep(0.1)
+        sleep(0.3)
 
 
 if __name__ == '__main__':
