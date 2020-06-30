@@ -30,7 +30,7 @@ function h1Create(h1Text, className) {
 }
 
 function formataPassagens(lista, idName) {
-    if (idName == 'galaxy') {
+    if (idName == 'GALAXY' || idName == 'ET-CSS-DEV') {
         let listaFormatada = []
         listaFormatada.push(`<h2><span class="direction">Direction</span><span class="speed">Speed</span></h2>`)
         for (x of Object.keys(lista)) {
@@ -79,14 +79,6 @@ function movimento(status) {
     }
 }
 
-function checkSheduleds(lista) {
-    if (Object.keys(lista).length) {
-        return lista
-    }
-    else {
-        return { "00:00": "NoSatScheduledYet" }
-    }
-}
 
 function FetchParser(jsonObj) {
 
@@ -107,13 +99,14 @@ function FetchParser(jsonObj) {
         ulEt.appendChild(createUlList(agendaEt, "pass"), "pass");
 
     }
-    const statusGalaxy = galaxyStatus["GALAXY"]["Status"]
-    const netWork = galaxyStatus["GALAXY"]["Network"];
+    const servidor = Object.keys(galaxyStatus)
+    const statusGalaxy = galaxyStatus[servidor]["Status"]
+    const netWork = galaxyStatus[servidor]["Network"];
     const statGalaxy = formataStatus(statusGalaxy);
-    const networkList = formataPassagens(netWork, "galaxy");
-    divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statGalaxy, "status"), "GALAXY"), "server"), "bloco"))
-    ulGLaxy = document.querySelector(`.GALAXY`);
-    ulGLaxy.insertAdjacentHTML('beforebegin', `<h1>GALAXY</h1>`);
+    const networkList = formataPassagens(netWork, servidor);
+    divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statGalaxy, "status"), servidor), "server"), "bloco"))
+    ulGLaxy = document.querySelector(`.${servidor}`);
+    ulGLaxy.insertAdjacentHTML('beforebegin', `<h1>${servidor}</h1>`);
     ulGLaxy.appendChild(createUlList(networkList, "pass"), "pass");
 }
 
