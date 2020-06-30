@@ -30,7 +30,7 @@ function h1Create(h1Text, className) {
 }
 
 function formataPassagens(lista, idName) {
-    if (idName == 'galaxy') {
+    if (idName != 'parado' || idName != 'movimentando') {
         let listaFormatada = []
         listaFormatada.push(`<h2><span class="direction">Direction</span><span class="speed">Speed</span></h2>`)
         for (x of Object.keys(lista)) {
@@ -79,14 +79,6 @@ function movimento(status) {
     }
 }
 
-function checkSheduleds(lista) {
-    if (Object.keys(lista).length) {
-        return lista
-    }
-    else {
-        return { "00:00": "NoSatScheduledYet" }
-    }
-}
 
 function FetchParser(jsonObj) {
 
