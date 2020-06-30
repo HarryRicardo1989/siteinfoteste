@@ -30,7 +30,7 @@ function h1Create(h1Text, className) {
 }
 
 function formataPassagens(lista, idName) {
-    if (idName != 'parado' || idName != 'movimentando') {
+    if (idName == 'GALAXY' || idName == 'ET-CSS-DEV') {
         let listaFormatada = []
         listaFormatada.push(`<h2><span class="direction">Direction</span><span class="speed">Speed</span></h2>`)
         for (x of Object.keys(lista)) {
