@@ -2,10 +2,10 @@ function formataStatus(status) {
     let statusFormatado = []
     /* classificaçao Hora */
     if (status['Posicao_Atual']) {
-        statusFormatado.push(`Hora do ADA-Server: <span class="verde">${status['Hora_Atual']}</span>`);
+        statusFormatado.push(`Relógio do ADA-Server: <span class="verde">${status['Hora_Atual']}</span>`);
         /* classificaçao SSD */
     } else {
-        statusFormatado.push(`Hora do Server: <span class="verde">${status['Hora_Atual']}</span>`);
+        statusFormatado.push(`Relógio do Servidor: <span class="verde">${status['Hora_Atual']}</span>`);
     }
 
     for (disc of Object.keys(status['Discos'])) {
