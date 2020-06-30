@@ -30,9 +30,15 @@ class StatusSistemas:
         status_galaxy = {}
         status = {}
         network = {}
+        eth0 = {}
+        tun0 = {}
         status_servidor = GalaxyStatus()
-        network.update(SpeedTest().speed("tx", "enp1s0"))
-        network.update(SpeedTest().speed("rx", "enp1s0"))
+        eth0.update(SpeedTest().speed("tx", "enp1s0"))
+        eth0.update(SpeedTest().speed("rx", "enp1s0"))
+        tun0.update(SpeedTest().speed("tx", "tun0"))
+        tun0.update(SpeedTest().speed("rx", "tun0"))
+        network.update({"eth0": eth0})
+        network.update({"tun0": tun0})
         hostname, temperatura_processador, hora, armazenamento = status_servidor.get_status_galaxy()
         status.update({"Temp_CPU": temperatura_processador})
         status.update({"Hora_Atual": hora})
@@ -48,4 +54,4 @@ class StatusSistemas:
         return {f"{hostname}": status_galaxy}
 
 
-# print(StatusSistemas().get_galaxy_stat())
+print(StatusSistemas().get_galaxy_stat())
