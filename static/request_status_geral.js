@@ -28,30 +28,29 @@ function h1Create(h1Text, className) {
     tag_Name.innerHTML = h1Text;
     return tag_Name
 }
-
-function formataPassagens(lista, idName) {
-    if (idName == 'GALAXY' || idName == 'ET-CSS-DEV') {
-        let listaFormatada = []
-        listaFormatada.push(`<h2><span class="direction">Direction</span><span class="speed">Speed</span></h2>`)
-        for (x of Object.keys(lista)) {
-            listaFormatada.push(`<span class="direction">${x}</span>&#8658;<span id="verde" class="speed">${lista[x]}</span>`)
-        }
-        return listaFormatada
-    } else {
-
-        let listaFormatada = []
-        listaFormatada.push(`<h2><span class="hora">Hora </span><span class="sat">   Satelite</span></h2>`)
-        for (x of Object.keys(lista)) {
-            listaFormatada.push(`<span class="hora">${x}</span>&#8658;<span class="sat">${lista[x]}</span>`)
-        }
-        if (movimenta == true) {
-            listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
-        } else {
-            listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
-        }
-        return listaFormatada
+function formataGalaxy(lista, idName) {
+    let listaFormatada = []
+    listaFormatada.push(`<h2><span class="direction">Direction</span><span class="speed">Speed</span></h2>`)
+    for (x of Object.keys(lista)) {
+        listaFormatada.push(`<span class="direction">${idName}${x}</span>&#8658;<span id="verde" class="speed">${lista[x]}</span>`)
     }
+    return listaFormatada
 }
+function formataPassagens(lista, idName) {
+
+    let listaFormatada = []
+    listaFormatada.push(`<h2><span class="hora">Hora </span><span class="sat">   Satelite</span></h2>`)
+    for (x of Object.keys(lista)) {
+        listaFormatada.push(`<span class="hora">${x}</span>&#8658;<span class="sat">${lista[x]}</span>`)
+    }
+    if (movimenta == true) {
+        listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
+    } else {
+        listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
+    }
+    return listaFormatada
+}
+
 
 
 function movimento(status) {
@@ -103,11 +102,16 @@ function FetchParser(jsonObj) {
     const statusGalaxy = galaxyStatus[servidor]["Status"]
     const netWork = galaxyStatus[servidor]["Network"];
     const statGalaxy = formataStatus(statusGalaxy);
-    const networkList = formataPassagens(netWork, servidor);
+
     divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statGalaxy, "status"), servidor), "server"), "bloco"))
     ulGLaxy = document.querySelector(`.${servidor}`);
     ulGLaxy.insertAdjacentHTML('beforebegin', `<h1>${servidor}</h1>`);
-    ulGLaxy.appendChild(createUlList(networkList, "pass"), "pass");
+    for (rede of Object.keys(netWork)) {
+        console.log(netWork[rede])
+        const networkList = formataGalaxy(netWork[rede], rede);
+        ulGLaxy.appendChild(createUlList(networkList, "pass"), "pass");
+
+    }
 }
 
 function atualizaStatus() {
