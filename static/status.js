@@ -1,9 +1,12 @@
 function formataStatus(status) {
     let statusFormatado = []
     /* classificaçao Hora */
-    statusFormatado.push(`Hora do ADA-Server: <span class="verde">${status['Hora_Atual']}</span>`);
-    /* classificaçao SSD */
-
+    if (status['Posicao_Atual']) {
+        statusFormatado.push(`Hora do ADA-Server: <span class="verde">${status['Hora_Atual']}</span>`);
+        /* classificaçao SSD */
+    } else {
+        statusFormatado.push(`Hora do Server: <span class="verde">${status['Hora_Atual']}</span>`);
+    }
 
     for (disc of Object.keys(status['Discos'])) {
         const discos = status['Discos']
@@ -43,10 +46,15 @@ function formataStatus(status) {
 
 
     /* classificaçao posiçao */
-    if (status['Posicao_Atual'] == "AZ010.00 EL-00.00" || status['Posicao_Atual'] == "AZ075.00 EL-00.00" || status['Posicao_Atual'] == "AZ010.00 EL00.00" || status['Posicao_Atual'] == "AZ075.00 EL00.00") {
-        statusFormatado.push(`Posição da Antena:  <span class="verde">${status['Posicao_Atual']}</span>`);
+    if (status['Posicao_Atual']) {
+
+        if (status['Posicao_Atual'] == "AZ010.00 EL-00.00" || status['Posicao_Atual'] == "AZ075.00 EL-00.00" || status['Posicao_Atual'] == "AZ010.00 EL00.00" || status['Posicao_Atual'] == "AZ075.00 EL00.00") {
+            statusFormatado.push(`Posição da Antena:  <span class="verde">${status['Posicao_Atual']}</span>`);
+        } else {
+            statusFormatado.push(`Posição da Antena:  <span class="amarelo">${status['Posicao_Atual']}</span>`);
+        }
+        return statusFormatado
     } else {
-        statusFormatado.push(`Posição da Antena:  <span class="amarelo">${status['Posicao_Atual']}</span>`);
+        return statusFormatado
     }
-    return statusFormatado
 }
