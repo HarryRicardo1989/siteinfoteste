@@ -124,10 +124,6 @@ function atualizaGalaxy() {
 }
 setInterval(function () {
     atualizaStatus();
-<<<<<<< HEAD
-}, 300)
-=======
     atualizaGalaxy();
 }, 300)
 
->>>>>>> galaxyStatus
