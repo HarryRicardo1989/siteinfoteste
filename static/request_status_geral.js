@@ -30,7 +30,7 @@ function h1Create(h1Text, className) {
 }
 
 function formataPassagens(lista, idName) {
-    if (idName == 'galaxy') {
+    if (idName != 'parado' || idName != 'movimentando') {
         let listaFormatada = []
         listaFormatada.push(`<h2><span class="direction">Direction</span><span class="speed">Speed</span></h2>`)
         for (x of Object.keys(lista)) {
@@ -71,6 +71,15 @@ function checkSheduleds(lista) {
     }
 }
 
+function movimento(status) {
+    if (status['Posicao_Atual'] == "AZ010.00 EL-00.00" || status['Posicao_Atual'] == "AZ075.00 EL-00.00" || status['Posicao_Atual'] == "AZ010.00 EL00.00" || status['Posicao_Atual'] == "AZ075.00 EL00.00") {
+        return "parada"
+    } else {
+        return "movimentando"
+    }
+}
+
+
 function FetchParser(jsonObj) {
 
     let statusGeral = jsonObj['DataSAT'];
@@ -90,13 +99,14 @@ function FetchParser(jsonObj) {
         ulEt.appendChild(createUlList(agendaEt, "pass"), "pass");
 
     }
-    const statusGalaxy = galaxyStatus["GALAXY"]["Status"]
-    const netWork = galaxyStatus["GALAXY"]["Network"];
+    const servidor = Object.keys(galaxyStatus)
+    const statusGalaxy = galaxyStatus[servidor]["Status"]
+    const netWork = galaxyStatus[servidor]["Network"];
     const statGalaxy = formataStatus(statusGalaxy);
-    const networkList = formataPassagens(netWork, "galaxy");
-    divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statGalaxy, "status"), "GALAXY"), "server"), "bloco"))
-    ulGLaxy = document.querySelector(`.GALAXY`);
-    ulGLaxy.insertAdjacentHTML('beforebegin', `<h1>GALAXY</h1>`);
+    const networkList = formataPassagens(netWork, servidor);
+    divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statGalaxy, "status"), servidor), "server"), "bloco"))
+    ulGLaxy = document.querySelector(`.${servidor}`);
+    ulGLaxy.insertAdjacentHTML('beforebegin', `<h1>${servidor}</h1>`);
     ulGLaxy.appendChild(createUlList(networkList, "pass"), "pass");
 }
 
