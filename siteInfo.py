@@ -7,7 +7,8 @@ from statusGeral import StatusSistemas
 
 
 app = Flask(__name__)
-status_geral_atualiza = None
+status_completo_atualiza = None
+status_galaxy = None
 
 
 @app.route('/')
@@ -21,20 +22,26 @@ def status():
     return render_template('ada_info.html')
 
 
-@ app.route('/statusSistema')
-def status_sistema():
-    status_geral2 = StatusSistemas()
+@ app.route('/statusCompleto')
+def status_completo():
 
-    return status_geral_atualiza
+    return status_completo_atualiza
+
+
+@ app.route('/statusGalaxy')
+def status_galaxy():
+
+    return status_galaxy
 
 
 def atualiza_status():
-    global status_geral_atualiza
+    global status_completo_atualiza
+    global status_galaxy
     while(True):
         status_geral2 = StatusSistemas()
-
-        status_geral_atualiza = status_geral2.get_statusgeral()
-        sleep(0.7)
+        status_galaxy = status_geral2.get_galaxy_stat()
+        status_completo_atualiza = status_geral2.get_status_completo()
+        sleep(0.1)
 
 
 if __name__ == '__main__':
