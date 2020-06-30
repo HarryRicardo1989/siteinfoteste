@@ -3,7 +3,7 @@ import time
 
 class SpeedTest:
 
-    def speed(self, direction, device, time_step=0.5):
+    def speed(self, direction, device, time_step=0.1):
         path = "/sys/class/net/{}/statistics/{}_bytes".format(
             device, direction)
         with open(path, "r") as f:
