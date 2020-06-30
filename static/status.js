@@ -43,10 +43,15 @@ function formataStatus(status) {
 
 
     /* classificaçao posiçao */
-    if (status['Posicao_Atual'] == "AZ010.00 EL-00.00" || status['Posicao_Atual'] == "AZ075.00 EL-00.00" || status['Posicao_Atual'] == "AZ010.00 EL00.00" || status['Posicao_Atual'] == "AZ075.00 EL00.00") {
-        statusFormatado.push(`Posição da Antena:  <span class="verde">${status['Posicao_Atual']}</span>`);
+    if (status['Posicao_Atual']) {
+
+        if (status['Posicao_Atual'] == "AZ010.00 EL-00.00" || status['Posicao_Atual'] == "AZ075.00 EL-00.00" || status['Posicao_Atual'] == "AZ010.00 EL00.00" || status['Posicao_Atual'] == "AZ075.00 EL00.00") {
+            statusFormatado.push(`Posição da Antena:  <span class="verde">${status['Posicao_Atual']}</span>`);
+        } else {
+            statusFormatado.push(`Posição da Antena:  <span class="amarelo">${status['Posicao_Atual']}</span>`);
+        }
+        return statusFormatado
     } else {
-        statusFormatado.push(`Posição da Antena:  <span class="amarelo">${status['Posicao_Atual']}</span>`);
+        return statusFormatado
     }
-    return statusFormatado
 }

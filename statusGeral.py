@@ -1,5 +1,7 @@
 import requests
 import json
+from network_status import SpeedTest
+from status import GalaxyStatus
 
 
 class StatusSistemas:
@@ -9,15 +11,41 @@ class StatusSistemas:
         for i in range(0, len(self.__get_url())):
             try:
                 estacao = self.__get_url()[i]
-                status_completo.update(requests.get(f'{estacao}/statusSistema').json())
+                status_completo.update(requests.get(
+                    f"{estacao}/statusSistema").json())
             except:
                 pass
 
+        # status_completo.update(self.get_galaxy_stat())
         return {"DataSAT": status_completo}
 
     def __get_url(self):
         lista_url = []
-        with open(f'/var/local/ada-urls.txt') as ada_urls:
+        with open(f"/var/local/ada-urls.txt") as ada_urls:
             for url in ada_urls:
-                lista_url.append(url.strip('\n'))
+                lista_url.append(url.strip("\n"))
         return lista_url
+
+    def get_galaxy_stat(self):
+        status_galaxy = {}
+        status = {}
+        network = {}
+        status_servidor = GalaxyStatus()
+        network.update(SpeedTest().speed("tx", "enp2s0"))
+        network.update(SpeedTest().speed("rx", "enp2s0"))
+        hostname, temperatura_processador, hora, armazenamento = status_servidor.get_status_galaxy()
+        status.update({"Temp_CPU": temperatura_processador})
+        status.update({"Hora_Atual": hora})
+        dict_discos = {}
+        for item in armazenamento:
+            item.split(' ')
+            dict_discos.update(
+                {item.split()[0]: f'{item.split()[1]} de {item.split()[2]}'})
+        status.update({'Discos': dict_discos})
+        status_galaxy.update({"Network": network})
+        status_galaxy.update({"Status": status})
+
+        return {f"{hostname}": status_galaxy}
+
+
+# print(StatusSistemas().get_galaxy_stat())

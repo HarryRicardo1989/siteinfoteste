@@ -2,6 +2,7 @@ document.querySelector(".titulo-principal").textContent = "Status DATASAT";
 const divPrincipal = document.querySelector("#InicioBlocos");
 var ulEt01, pass;
 var movimenta = false
+var galaxyStatus = null
 function createUlList(lista, classeUL) {
     let ul = document.createElement("ol");
     ul.classList.add(classeUL)
@@ -29,18 +30,29 @@ function h1Create(h1Text, className) {
 }
 
 function formataPassagens(lista, idName) {
-    let listaFormatada = []
-    listaFormatada.push(`<h2><span class="hora">Hora </span><span class="sat">   Satelite</span></h2>`)
-    for (x of Object.keys(lista)) {
-        listaFormatada.push(`<span class="hora">${x}</span>&#8658;<span class="sat">${lista[x]}</span>`)
-    }
-    if (movimenta == true) {
-        listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
+    if (idName == 'galaxy') {
+        let listaFormatada = []
+        listaFormatada.push(`<h2><span class="direction">Direction</span><span class="speed">Speed</span></h2>`)
+        for (x of Object.keys(lista)) {
+            listaFormatada.push(`<span class="direction">${x}</span>&#8658;<span id="verde" class="speed">${lista[x]}</span>`)
+        }
+        return listaFormatada
     } else {
-        listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
+
+        let listaFormatada = []
+        listaFormatada.push(`<h2><span class="hora">Hora </span><span class="sat">   Satelite</span></h2>`)
+        for (x of Object.keys(lista)) {
+            listaFormatada.push(`<span class="hora">${x}</span>&#8658;<span class="sat">${lista[x]}</span>`)
+        }
+        if (movimenta == true) {
+            listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
+        } else {
+            listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
+        }
+        return listaFormatada
     }
-    return listaFormatada
 }
+
 
 function movimento(status) {
     if (status['Posicao_Atual'] == "AZ010.00 EL-00.00" || status['Posicao_Atual'] == "AZ075.00 EL-00.00" || status['Posicao_Atual'] == "AZ010.00 EL00.00" || status['Posicao_Atual'] == "AZ075.00 EL00.00") {
@@ -67,14 +79,25 @@ function FetchParser(jsonObj) {
         const estacao = `${ET}`
         const passagens = statusGeral[estacao]["Passagens"];
         const statusSistema = statusGeral[estacao]["Status"]
+
+
+
         const agendaEt = formataPassagens(checkSheduleds(passagens), movimento(statusSistema));
         const statusEt = formataStatus(statusSistema);
         divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt, "status"), estacao), "datasat"), "bloco"))
         ulEt = document.querySelector(`.${estacao}`);
         ulEt.insertAdjacentHTML('beforebegin', `<h1>${estacao}</h1>`);
         ulEt.appendChild(createUlList(agendaEt, "pass"), "pass");
-    }
 
+    }
+    const statusGalaxy = galaxyStatus["GALAXY"]["Status"]
+    const netWork = galaxyStatus["GALAXY"]["Network"];
+    const statGalaxy = formataStatus(statusGalaxy);
+    const networkList = formataPassagens(netWork, "galaxy");
+    divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statGalaxy, "status"), "GALAXY"), "server"), "bloco"))
+    ulGLaxy = document.querySelector(`.GALAXY`);
+    ulGLaxy.insertAdjacentHTML('beforebegin', `<h1>GALAXY</h1>`);
+    ulGLaxy.appendChild(createUlList(networkList, "pass"), "pass");
 }
 
 function atualizaStatus() {
@@ -93,7 +116,14 @@ function atualizaStatus() {
     });
 
 };
-
+function atualizaGalaxy() {
+    const url = '/statusGalaxy'
+    fetch(url).then(resp => resp.json()).then(status => {
+        galaxyStatus = status
+    })
+}
 setInterval(function () {
     atualizaStatus();
+    atualizaGalaxy();
 }, 300)
+

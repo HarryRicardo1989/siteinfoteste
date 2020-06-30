@@ -81,6 +81,15 @@ body {
     vertical-align: top;
     padding: 7px;
 }
+.server h1{
+    text-align: center;
+    color:rgb(94, 128, 134);
+    font-size: 1.8em;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: top;
+    padding: 7px;
+}
 .status li {
     vertical-align: top;
     color: rgb(175, 175, 175);
@@ -123,6 +132,26 @@ body {
 .pass .sat{
     padding-left: 20px;
 }
+.pass h2 .direction {
+    color:rgb(94, 128, 134);
+    padding-left: 10px;
+  }
+.pass h2 .speed {
+    color:rgb(94, 128, 134);
+    padding-left: 80px;
+
+}
+
+.pass .direction{
+
+    padding-right: 30px;
+    text-align: center;
+}
+.pass .speed{
+    text-align: center;
+
+    padding-left: 30px;
+}
 
 footer {
     position: fixed;
@@ -141,6 +170,9 @@ footer {
 }
 
 .verde{
+    color: rgb(0, 150, 0);
+}
+#verde{
     color: rgb(0, 150, 0);
 }
 .amarelo{
