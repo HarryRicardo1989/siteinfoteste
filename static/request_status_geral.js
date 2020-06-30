@@ -2,10 +2,7 @@ document.querySelector(".titulo-principal").textContent = "Status DATASAT";
 const divPrincipal = document.querySelector("#InicioBlocos");
 var ulEt01, pass;
 var movimenta = false
-<<<<<<< HEAD
-=======
 var galaxyStatus = null
->>>>>>> galaxyStatus
 function createUlList(lista, classeUL) {
     let ul = document.createElement("ol");
     ul.classList.add(classeUL)
@@ -33,19 +30,6 @@ function h1Create(h1Text, className) {
 }
 
 function formataPassagens(lista, idName) {
-<<<<<<< HEAD
-    let listaFormatada = []
-    listaFormatada.push(`<h2><span class="hora">Hora </span><span class="sat">   Satelite</span></h2>`)
-    for (x of Object.keys(lista)) {
-        listaFormatada.push(`<span class="hora">${x}</span>&#8658;<span class="sat">${lista[x]}</span>`)
-    }
-    if (movimenta == true) {
-        listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
-    } else {
-        listaFormatada[1] = listaFormatada[1].replace(/class=/g, `id="${idName}" class=`)
-    }
-    return listaFormatada
-=======
     if (idName == 'galaxy') {
         let listaFormatada = []
         listaFormatada.push(`<h2><span class="direction">Direction</span><span class="speed">Speed</span></h2>`)
@@ -85,7 +69,6 @@ function checkSheduleds(lista) {
     else {
         return { "XX:XX": "NoSatScheduledYet" }
     }
->>>>>>> galaxyStatus
 }
 
 function movimento(status) {
@@ -107,24 +90,6 @@ function checkSheduleds(lista) {
 
 function FetchParser(jsonObj) {
 
-<<<<<<< HEAD
-    let statusGeral = jsonObj["statusSistema"];
-    let passagens = statusGeral["Passagens"];
-    let statusSistema = statusGeral["Status"];
-    let agendaEt1 = formataPassagens(checkSheduleds(passagens[1]["Passagens ET-CSS-001"]), movimento(statusSistema[1]["Status ET-CSS-001"]));
-    let agendaEt2 = formataPassagens(checkSheduleds(passagens[2]["Passagens ET-CSS-002"]), movimento(statusSistema[2]["Status ET-CSS-002"]));
-    let statusEt1 = formataStatus(statusSistema[1]["Status ET-CSS-001"]);
-    let statusEt2 = formataStatus(statusSistema[2]["Status ET-CSS-002"]);
-    divPrincipal.innerHTML = '';
-    divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt1, "status"), "ET-CSS-001"), "datasat"), "bloco"))
-    divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt2, "status"), "ET-CSS-002"), "datasat"), "bloco"))
-    ulEt01 = document.querySelector(".ET-CSS-001");
-    ulEt01.insertAdjacentHTML('beforebegin', '<h1>ET-CSS-001</h1>');
-    ulEt01.appendChild(createUlList(agendaEt1, "pass"), "pass");
-    ulEt01 = document.querySelector(".ET-CSS-002");
-    ulEt01.appendChild(createUlList(agendaEt2, "pass"), "pass");
-    ulEt01.insertAdjacentHTML('beforebegin', '<h1>ET-CSS-002</h1>');
-=======
     let statusGeral = jsonObj['DataSAT'];
     divPrincipal.innerHTML = '';
     for (ET of Object.keys(statusGeral)) {
@@ -132,7 +97,6 @@ function FetchParser(jsonObj) {
         const passagens = statusGeral[estacao]["Passagens"];
         const statusSistema = statusGeral[estacao]["Status"]
 
->>>>>>> galaxyStatus
 
 
         const agendaEt = formataPassagens(checkSheduleds(passagens), movimento(statusSistema));
@@ -177,10 +141,6 @@ function atualizaGalaxy() {
 }
 setInterval(function () {
     atualizaStatus();
-<<<<<<< HEAD
-}, 300)
-=======
     atualizaGalaxy();
 }, 300)
 
->>>>>>> galaxyStatus
