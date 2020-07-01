@@ -108,7 +108,6 @@ function FetchParser(jsonObj) {
     ulGLaxy = document.querySelector(`.${servidor}`);
     ulGLaxy.insertAdjacentHTML('beforebegin', `<h1>${servidor}</h1>`);
     for (rede of Object.keys(netWork)) {
-        console.log(netWork[rede])
         const networkList = formataGalaxy(netWork[rede], rede);
         ulGLaxy.appendChild(createUlList(networkList, "pass"), "pass");
 
