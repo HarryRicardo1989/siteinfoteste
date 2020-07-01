@@ -32,7 +32,8 @@ function formataGalaxy(lista, idName) {
     let listaFormatada = []
     listaFormatada.push(`<h2><span class="direction">Direction</span><span class="speed">Speed</span></h2>`)
     for (x of Object.keys(lista)) {
-        listaFormatada.push(`<span class="direction">${idName}${x}</span>&#8658;<span id="verde" class="speed">${lista[x]}</span>`)
+        listaFormatada.push(`<span class="direction">${idName} ${x}</span>&#8658;<span id="verde" class="speed">${lista[x]}MB/s</span>`)
+        listaFormatada.push(`<span class="direction">${idName} ${x}</span>&#8658;<span id="verde" class="speed">${(lista[x] * 8)}Mb/s</span>`)
     }
     return listaFormatada
 }
