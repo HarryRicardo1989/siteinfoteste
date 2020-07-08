@@ -1,3 +1,11 @@
+var meuNavegador = navigator.userAgent;
+
+if (meuNavegador.includes("Mobile")) {
+    document.getElementById("logotipo").style.display = "none";
+
+}
+
+
 document.querySelector(".titulo-principal").textContent = "Status DATASAT";
 const divPrincipal = document.querySelector("#InicioBlocos");
 var ulEt01, pass;
@@ -14,6 +22,51 @@ function createUlList(lista, classeUL) {
     return ul
 
 }
+
+function formataStatus(status) {
+    let statusFormatado = []
+    /* classificaçao Hora */
+    if (status['Posicao_Atual']) {
+        statusFormatado.push(`Relógio do ADA-Server: <span class="verde">${status['Hora_Atual']}</span>`);
+        /* classificaçao SSD */
+    } else {
+        statusFormatado.push(`Relógio do Servidor: <span class="verde">${status['Hora_Atual']}</span>`);
+    }
+
+    for (disc of Object.keys(status['Discos'])) {
+        const discos = status['Discos']
+        if (parseInt(discos[disc]) < 50) {
+            statusFormatado.push(`Porcentagem do ${disc} usado: <span class="verde">${discos[disc]}</span>`);
+        } else if (parseInt(discos[disc]) <= 80) {
+            statusFormatado.push(`Porcentagem do ${disc} usado: <span class="amarelo">${discos[disc]}</span>`);
+        } else {
+            statusFormatado.push(`<span class="vermelho">Porcentagem do ${disc} usado: ${discos[disc]}</span>`);
+        }
+    }
+
+    /* classificaçao Temperatura Processador */
+    if (parseInt(status['Temp_CPU']) < 65) {
+        statusFormatado.push(`Temperatura do Processador:  <span class="verde">${status['Temp_CPU']}ºC</span>`);
+    } else if (parseInt(status['Temp_CPU']) < 75) {
+        statusFormatado.push(`Temperatura do Processador: <span class="amarelo"> ${status['Temp_CPU']}ºC</span>`);
+    } else {
+        statusFormatado.push(`<span class="vermelho">Temperatura do Processador:  ${status['Temp_CPU']}ºC</span>`);
+    }
+
+    /* classificaçao posiçao */
+    if (status['Posicao_Atual']) {
+
+        if (status['Posicao_Atual'] == "AZ010.00 EL-00.00" || status['Posicao_Atual'] == "AZ075.00 EL-00.00" || status['Posicao_Atual'] == "AZ010.00 EL00.00" || status['Posicao_Atual'] == "AZ075.00 EL00.00") {
+            statusFormatado.push(`Posição da Antena:  <span class="verde">${status['Posicao_Atual']}</span>`);
+        } else {
+            statusFormatado.push(`Posição da Antena:  <span class="amarelo">${status['Posicao_Atual']}</span>`);
+        }
+        return statusFormatado
+    } else {
+        return statusFormatado
+    }
+}
+
 
 function divCreate(tagFilha, classeDiv) {
     let div = document.createElement("div");
@@ -136,8 +189,26 @@ function atualizaGalaxy() {
         galaxyStatus = status
     })
 }
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    h = checkTime(h);
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('clock').innerHTML = `${h}:${m}:${s}`;
+    //var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    return i;
+}
+
 setInterval(function () {
     atualizaStatus();
     atualizaGalaxy();
+    startTime();
 }, 300)
 
