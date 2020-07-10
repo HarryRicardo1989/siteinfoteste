@@ -19,18 +19,6 @@ function formataStatus(status) {
         }
     }
 
-    /*     if (parseInt(status['sda1']) < 50) {
-            statusFormatado.push(`Porcentagem do SSD usado: <span class="verde">${status['sda1']}</span>`);
-        } else if (parseInt(status['sda1']) <= 80) {
-            statusFormatado.push(`Porcentagem do SSD usado: <span class="amarelo">${status['sda1']}</span>`);
-        } else {
-            statusFormatado.push(`<span class="vermelho">Porcentagem do SSD usado: ${status['sda1']}</span>`);
-        } */
-
-
-
-
-
     /* classificaçao Temperatura Processador */
     if (parseInt(status['Temp_CPU']) < 65) {
         statusFormatado.push(`Temperatura do Processador:  <span class="verde">${status['Temp_CPU']}ºC</span>`);
@@ -39,11 +27,6 @@ function formataStatus(status) {
     } else {
         statusFormatado.push(`<span class="vermelho">Temperatura do Processador:  ${status['Temp_CPU']}ºC</span>`);
     }
-
-
-
-
-
 
     /* classificaçao posiçao */
     if (status['Posicao_Atual']) {

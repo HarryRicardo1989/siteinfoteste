@@ -16,7 +16,6 @@ class StatusSistemas:
             except:
                 pass
 
-        # status_completo.update(self.get_galaxy_stat())
         return {"DataSAT": status_completo}
 
     def __get_url(self):
