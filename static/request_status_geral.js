@@ -142,8 +142,6 @@ function FetchParser(jsonObj) {
         const passagens = statusGeral[estacao]["Passagens"];
         const statusSistema = statusGeral[estacao]["Status"]
 
-
-
         const agendaEt = formataPassagens(checkSheduleds(passagens), movimento(statusSistema));
         const statusEt = formataStatus(statusSistema);
         divPrincipal.appendChild(divCreate(divCreate(divCreate(createUlList(statusEt, "status"), estacao), "datasat"), "bloco"))
