@@ -43,7 +43,7 @@ def atualiza_galaxy():
     global status_galaxy
     while(True):
         status_galaxy = StatusSistemas().get_galaxy_stat()
-        sleep(0.3)
+        sleep(0.1)
 
 
 if __name__ == '__main__':
