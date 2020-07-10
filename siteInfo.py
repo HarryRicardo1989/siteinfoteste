@@ -51,4 +51,4 @@ if __name__ == '__main__':
     threadGalaxy = threading.Thread(target=atualiza_galaxy)
     threadstatus.start()
     threadGalaxy.start()
-    app.run(host='0.0.0.0', port=80, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=81, debug=False, threaded=True)
