@@ -52,6 +52,17 @@ function formataStatus(status) {
     } else {
         statusFormatado.push(`<span class="vermelho">Temperatura do Processador:  ${status['Temp_CPU']}ºC</span>`);
     }
+    if (status['CPU_Load']) {
+
+        if (parseFloat(status['CPU_Load']) < 50.0) {
+            statusFormatado.push(`Carga da CPU: <span class="verde">${status['CPU_Load']}%</span>`);
+        } else if (parseFloat(discos[disc]) <= 80.0) {
+            statusFormatado.push(`Carga da CPU: <span class="amarelo">${status['CPU_Load']}%</span>`);
+        } else {
+            statusFormatado.push(`<span class="vermelho">Carga da CPU: ${status['CPU_Load']}%</span>`);
+        }
+
+    }
 
     /* classificaçao posiçao */
     if (status['Posicao_Atual']) {
