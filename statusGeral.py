@@ -54,4 +54,4 @@ class StatusSistemas:
         return {f"{hostname}": status_galaxy}
 
 
-print(StatusSistemas().get_galaxy_stat())
+#print(StatusSistemas().get_galaxy_stat())
