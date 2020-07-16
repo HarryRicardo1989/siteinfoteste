@@ -32,8 +32,8 @@ class StatusSistemas:
         eth0 = {}
         tun0 = {}
         status_servidor = GalaxyStatus()
-        eth0.update(SpeedTest().speed("tx", "enp1s0"))
-        eth0.update(SpeedTest().speed("rx", "enp1s0"))
+        eth0.update(SpeedTest().speed("tx", "enp2s0"))
+        eth0.update(SpeedTest().speed("rx", "enp2s0"))
         tun0.update(SpeedTest().speed("tx", "tun0"))
         tun0.update(SpeedTest().speed("rx", "tun0"))
         network.update({"eth0": eth0})
@@ -47,11 +47,11 @@ class StatusSistemas:
             dict_discos.update(
                 {item.split()[0]: f'{item.split()[1]} de {item.split()[2]}'})
         status.update({'Discos': dict_discos})
-        status.update({'CPU_Load':cpu_load})
+        status.update({'CPU_Load': cpu_load})
         status_galaxy.update({"Network": network})
         status_galaxy.update({"Status": status})
 
         return {f"{hostname}": status_galaxy}
 
 
-#print(StatusSistemas().get_galaxy_stat())
+# print(StatusSistemas().get_galaxy_stat())
