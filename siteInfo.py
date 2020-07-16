@@ -29,6 +29,7 @@ def status_completo():
 
 @ app.route('/statusGalaxy')
 def status_galaxy():
+    print
     return status_galaxy
 
 
@@ -51,4 +52,4 @@ if __name__ == '__main__':
     threadGalaxy = threading.Thread(target=atualiza_galaxy)
     threadstatus.start()
     threadGalaxy.start()
-    app.run(host='127.0.0.1', port=5000, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=8000, debug=True, threaded=True)
