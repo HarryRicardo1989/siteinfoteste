@@ -37,6 +37,7 @@ def atualiza_status():
     global status_completo_atualiza
     while(True):
         status_completo_atualiza = StatusSistemas().get_status_completo()
+
         sleep(0.3)
 
 
@@ -44,7 +45,7 @@ def atualiza_galaxy():
     global status_galaxy
     while(True):
         status_galaxy = StatusSistemas().get_galaxy_stat()
-        sleep(0.1)
+        sleep(0.3)
 
 
 if __name__ == '__main__':
