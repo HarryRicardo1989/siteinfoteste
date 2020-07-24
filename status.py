@@ -18,6 +18,6 @@ class GalaxyStatus:
         self.__hora = self.__comando.comand("date +%H:%M:%S").replace("\n", '')
         self.__armazenamento = self.__comando.comand(
             "df -h | grep /dev/sd |awk '{print$1, $5, $2}' | xargs").replace("\n", '')[5:].split('/dev/')
-        self.__cpu_load = float(self.__comando.comand(
-            "top -bn1 | grep load | awk '{printf$(NF-2)}'").replace(',', ''))*10
+        self.__cpu_load = self.__comando.comand(
+            "top -bn1 | grep load | awk '{printf$(NF-2)}'").replace(',', '')
         return self.__hostename, self.__temperature_processor, self.__hora, self.__armazenamento, self.__cpu_load
