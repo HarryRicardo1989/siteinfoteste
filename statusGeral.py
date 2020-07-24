@@ -47,7 +47,7 @@ class StatusSistemas:
             dict_discos.update(
                 {item.split()[0]: f'{item.split()[1]} de {item.split()[2]}'})
         status.update({'Discos': dict_discos})
-        status.update({'CPU_Load': cpu_load})
+        status.update({'CPU_Load': round(cpu_load, 3)})
         status_galaxy.update({"Network": network})
         status_galaxy.update({"Status": status})
 
