@@ -16,7 +16,6 @@ class StatusSistemas:
             except:
                 pass
 
-        # status_completo.update(self.get_galaxy_stat())
         return {"DataSAT": status_completo}
 
     def __get_url(self):
@@ -39,7 +38,7 @@ class StatusSistemas:
         tun0.update(SpeedTest().speed("rx", "tun0"))
         network.update({"eth0": eth0})
         network.update({"tun0": tun0})
-        hostname, temperatura_processador, hora, armazenamento = status_servidor.get_status_galaxy()
+        hostname, temperatura_processador, hora, armazenamento, cpu_load = status_servidor.get_status_galaxy()
         status.update({"Temp_CPU": temperatura_processador})
         status.update({"Hora_Atual": hora})
         dict_discos = {}
@@ -48,10 +47,11 @@ class StatusSistemas:
             dict_discos.update(
                 {item.split()[0]: f'{item.split()[1]} de {item.split()[2]}'})
         status.update({'Discos': dict_discos})
+        status.update({'CPU_Load': cpu_load})
         status_galaxy.update({"Network": network})
         status_galaxy.update({"Status": status})
 
         return {f"{hostname}": status_galaxy}
 
 
-print(StatusSistemas().get_galaxy_stat())
+# print(StatusSistemas().get_galaxy_stat())
