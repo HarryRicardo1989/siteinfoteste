@@ -24,7 +24,7 @@ status_galaxy = None
 
 @ app.route('/statusCompleto')
 def status_completo():
-    return StatusSistemas().get_status_completo()
+    return status_completo_atualiza
 
 
 @ app.route('/statusGalaxy')
@@ -32,14 +32,13 @@ def status_galaxy():
     return status_galaxy
 
 
-''' def atualiza_status():
+def atualiza_status():
     global status_completo_atualiza
     while(True):
 
         status_completo_atualiza = StatusSistemas().get_status_completo()
 
         sleep(0.5)
- '''
 
 
 def atualiza_galaxy():
@@ -49,12 +48,13 @@ def atualiza_galaxy():
             status_galaxy = StatusSistemas().get_galaxy_stat()
         except:
             pass
-        sleep(0.3)
+
+        sleep(0.5)
 
 
 if __name__ == '__main__':
-    ''' threadstatus = threading.Thread(target=atualiza_status) '''
+    threadstatus = threading.Thread(target=atualiza_status)
     threadGalaxy = threading.Thread(target=atualiza_galaxy)
-    ''' threadstatus.start() '''
+    threadstatus.start()
     threadGalaxy.start()
     app.run(host='127.0.0.1', port=8000, debug=False, threaded=True)
