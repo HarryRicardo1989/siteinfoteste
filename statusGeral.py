@@ -12,15 +12,18 @@ class StatusSistemas:
         for i in range(0, len(self.__get_url())):
             estacao = self.__get_url()[i]
             try:
-                status_completo.update(requests.get(
-                    f"{estacao}/statusSistema").json())
+                r = requests.get(
+                    f"{estacao}/statusSistema")
+                status_completo.update(r.json())
             except:
                 if estacao == "http://10.8.0.102":
                     nomeEstacao = "ET-CSS-002"
                 if estacao == "http://10.8.0.101":
                     nomeEstacao = "ET-CSS-001"
                 status_completo.update({nomeEstacao: {"Passagens": {"None": "None"}, "Status": {
-                                       "Temp_CPU": "OFFLINE", "Posicao_Atual": "OFFLINE", "Hora_Atual": "OFFLINE", "CPU_Load": 0.0, "Discos": {"sda1": "OFFLINE", "sdb": "OFFLINE"}}}})
+                                       "Temp_CPU": "OFFLINE", "Posicao_Atual": "OFFLINE", "Hora_Atual": "OFFLINE", "CPU_Load": 0.0, "Discos": {"sda": "OFFLINE", "sdb": "OFFLINE"}}}})
+            finally:
+                r.close()
 
         return {"DataSAT": status_completo}
 

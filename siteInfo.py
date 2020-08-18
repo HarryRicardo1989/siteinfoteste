@@ -35,10 +35,8 @@ def status_galaxy():
 def atualiza_status():
     global status_completo_atualiza
     while(True):
-        try:
-            status_completo_atualiza = StatusSistemas().get_status_completo()
-        except:
-            pass
+
+        status_completo_atualiza = StatusSistemas().get_status_completo()
 
         sleep(0.5)
 
