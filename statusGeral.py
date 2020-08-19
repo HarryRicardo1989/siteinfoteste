@@ -7,6 +7,9 @@ import os
 
 class StatusSistemas:
 
+    def __init__(self):
+        self.numero_adas = [1, 2]
+
     def get_status_completo(self):
         status_completo = {}
         nomeEstacao = ''
@@ -46,6 +49,12 @@ class StatusSistemas:
             for item in lista_adas_out:
                 f.write("%s\n" % item)
 
+    def inicia_lista(self):
+        self.numero_adas
+        with open(f"/var/local/ada-list.txt", 'w') as f:
+            for item in self.numero_adas:
+                f.write("%s\n" % f"http://10.8.0.10{item}")
+
     def get_galaxy_stat(self):
         status_galaxy = {}
         status = {}
@@ -75,4 +84,4 @@ class StatusSistemas:
         return {f"{hostname}": status_galaxy}
 
 
-StatusSistemas().verifica_adas2()
+StatusSistemas().inicia_lista()
