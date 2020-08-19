@@ -2,6 +2,7 @@ import requests
 import json
 from network_status import SpeedTest
 from status import GalaxyStatus
+import os
 
 
 class StatusSistemas:
@@ -16,12 +17,8 @@ class StatusSistemas:
                     f"{estacao}/statusSistema")
                 status_completo.update(r.json())
             except:
-                if estacao == "http://10.8.0.102":
-                    nomeEstacao = "ET-CSS-002"
-                if estacao == "http://10.8.0.101":
-                    nomeEstacao = "ET-CSS-001"
-                status_completo.update({nomeEstacao: {"Passagens": {"None": "None"}, "Status": {
-                                       "Temp_CPU": "OFFLINE", "Posicao_Atual": "OFFLINE", "Hora_Atual": "OFFLINE", "CPU_Load": 0.0, "Discos": {"sda": "OFFLINE", "sdb": "OFFLINE"}}}})
+                pass
+
             finally:
                 r.close()
 
@@ -33,6 +30,21 @@ class StatusSistemas:
             for url in ada_urls:
                 lista_url.append(url.strip("\n"))
         return lista_url
+
+    def verifica_adas(self):
+        lista_adas = []
+        lista_adas_out = []
+        with open(f"/var/local/ada-list.txt") as ada_list:
+            for ada in ada_list:
+                lista_adas.append(ada.strip("\n"))
+
+        for ada in lista_adas:
+            stream = os.system(f"ping -c 1 -w1 {ada.replace('http://','')}")
+            if stream == 0:
+                lista_adas_out.append(ada.strip("\n"))
+        with open(f"/var/local/ada-urls.txt", 'w') as f:
+            for item in lista_adas_out:
+                f.write("%s\n" % item)
 
     def get_galaxy_stat(self):
         status_galaxy = {}
@@ -63,4 +75,4 @@ class StatusSistemas:
         return {f"{hostname}": status_galaxy}
 
 
-# print(StatusSistemas().get_galaxy_stat())
+StatusSistemas().verifica_adas2()
