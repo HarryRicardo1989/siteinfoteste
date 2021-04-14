@@ -53,7 +53,7 @@ class StatusSistemas:
         self.numero_adas
         with open(f"/var/local/ada-list.txt", 'w') as f:
             for item in self.numero_adas:
-                f.write("%s\n" % f"http://10.8.0.10{item}")
+                f.write("%s\n" % f"http://10.8.1.{item}")
 
     def get_galaxy_stat(self):
         status_galaxy = {}
