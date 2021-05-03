@@ -8,7 +8,7 @@ import os
 class StatusSistemas:
 
     def __init__(self):
-        self.numero_adas = ["0.100", "1.2"]
+        self.numero_adas = ["0.100", "1.2", "5.1"]
 
     def get_status_completo(self):
         status_completo = {}
