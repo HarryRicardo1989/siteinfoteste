@@ -8,7 +8,7 @@ import os
 class StatusSistemas:
 
     def __init__(self):
-        self.numero_adas = ["0.100", "1.2", "5.1"]
+        self.numero_adas = ["0.100", "1.2", "5.1","6.1"]
 
     def get_status_completo(self):
         status_completo = {}
@@ -17,7 +17,7 @@ class StatusSistemas:
             estacao = self.__get_url()[i]
             try:
                 r = requests.get(
-                    f"{estacao}/statusSistema")
+                    f"{estacao}:8000/statusSistema")
                 status_completo.update(r.json())
             except:
                 pass
@@ -42,7 +42,7 @@ class StatusSistemas:
                 lista_adas.append(ada.strip("\n"))
 
         for ada in lista_adas:
-            stream = os.system(f"ping -c 1 -w1 {ada.replace('http://','')}")
+            stream = os.system(f'ping -c 1 -w1 {ada.replace("http://","")}')
             if stream == 0:
                 lista_adas_out.append(ada.strip("\n"))
         with open(f"/var/local/ada-urls.txt", 'w') as f:
